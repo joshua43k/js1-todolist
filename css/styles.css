@@ -1,0 +1,36 @@
+.nav-back{
+  background-color: #7620ab;
+}
+
+.my-nav-style{
+  background-color: #7620ab;
+  border: none;
+  margin-bottom: 0;
+}
+
+.nav-logo {
+  height: 4em;
+  margin-top: -1.6em;
+  margin-left: 1em;
+}
+
+.nav-ul span {
+  color: #e6ab2e;
+  font-size: 1.5em;
+
+}
+
+.nav-ul span:hover {
+  color: #fff;
+}
+
+.swap-layout {
+  height: 3.5em;
+  width: 3em;
+}
+
+.main-bakground {
+  background-color: #c2c1be;
+  background-size: cover;
+  min-height: 75em;
+}
