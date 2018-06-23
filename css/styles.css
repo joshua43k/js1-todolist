@@ -1,36 +1,54 @@
-.nav-back{
-  background-color: #7620ab;
+.hide {
+  display: none;
 }
 
-.my-nav-style{
-  background-color: #7620ab;
-  border: none;
-  margin-bottom: 0;
+.show {
+  display: absolute;
 }
 
-.nav-logo {
-  height: 4em;
-  margin-top: -1.6em;
-  margin-left: 1em;
+.note-sec{
+  background-color: #ccc;
 }
 
-.nav-ul span {
-  color: #e6ab2e;
-  font-size: 1.5em;
-
+.note-container {
+  background-color: #ccc;
+  padding: 1em;
 }
 
-.nav-ul span:hover {
-  color: #fff;
+.note-input {
+  width: 90%;
+  height:34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.swap-layout {
-  height: 3.5em;
-  width: 3em;
+.header-todo {
+  background-color: #ccc;
 }
 
-.main-bakground {
-  background-color: #c2c1be;
-  background-size: cover;
-  min-height: 75em;
+.list-header{
+  color: #555;
+}
+
+.list-sec {
+  min-height: 900px;
+  background-color: #777;
+}
+
+.item-list {
+  min-height: 900px;
+  background-color: #555;
+}
+
+.listed-item {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.listed-item button {
+  margin: 0 5em;
 }
