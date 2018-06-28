@@ -78,9 +78,9 @@ function createTodo(con,todo,arr) {
     e.preventDefault();
     container.removeChild(div);
     if(container === todoContainer){
-      createTodo(doneContainer,text,doneList);
+      createTodo(doneContainer,h2.innerText,doneList);
     } else if(container === doneContainer){
-      createTodo(todoContainer,text,todoList);
+      createTodo(todoContainer,h2.innerText,todoList);
     };
   });
   div.appendChild(editBtn);
@@ -88,7 +88,7 @@ function createTodo(con,todo,arr) {
   editBtn.addEventListener('click', e => {
     e.preventDefault();
     editFun(div,h2,removeBtn,okBtn,editBtn);
-});
+  });
 listArr.push(newTodo);
 };
 
@@ -125,6 +125,7 @@ function editFun(div,h2,btn1,btn2,btn3) {
   form.appendChild(stopBtn);
   stopBtn.classList.add('glyphicon','glyphicon-floppy-remove');
   stopBtn.addEventListener('click', e => {
+    e.preventDefault();
     div.removeChild(form);
     h2.classList.remove('hide');
     btn1.classList.remove('hide');
