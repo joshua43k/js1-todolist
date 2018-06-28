@@ -1,0 +1,54 @@
+.hide {
+  display: none;
+}
+
+.show {
+  display: absolute;
+}
+
+.note-sec{
+  background-color: #ccc;
+}
+
+.note-container {
+  background-color: #ccc;
+  padding: 1em;
+}
+
+.note-input {
+  width: 70%;
+  height:34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.header-todo {
+  background-color: #ccc;
+}
+
+.list-header{
+  color: #555;
+}
+
+.list-sec {
+  min-height: 900px;
+  background-color: #777;
+}
+
+.item-list {
+  min-height: 900px;
+  background-color: #555;
+}
+
+.listed-item {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.listed-item button {
+  margin: 0 5em;
+}

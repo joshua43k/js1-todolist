@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/styles.css">
-  <title>josh's todo app</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>josh's todo app</title>
+  </head>
+  <body>
+    <section class="note-sec container-fluid" id="note_sec">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="note-container container">
+            <form action="" class="note-form" name="noteForm" id="note_form">
+              <input class="note-input" type="text" name="noteInput" placeholder="Note">
+              <button type="submit" name="submit" class="btn btn-default submit" id="submitBtn">ADD</button>
+              <button type="button" name="button" class="btn btn-default show-done glyphicon glyphicon-th-list" id="show_done"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container-fluid text-center header-todo">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="list-header">
+            <h2 id="header">To-Do</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="list-sec container-fluid">
+      <div class="container item-list text-center" id="todo_items">
 
-  <script src="js/scripts.js"></script>
-</body>
+      </div>
+      <div class="container hide item-list text-center" id="done_items">
+
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
 </html>
