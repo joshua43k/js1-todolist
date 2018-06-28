@@ -7,13 +7,13 @@ let toggleClass = document.querySelector('#show_done');
 let header = document.querySelector('#header');
 let listValue = 0;
 
-function Todoitems(div,h2,removeBtn,okBtn,editBtn) {
+function Todoitems(div,h2,removeBtn,okBtn,editBtn) { //Don't forget to camelCase, even if you are capitalizing the first letter. -RJH
   this.div = div;
   this.h2 = h2;
   this.removeBtn = removeBtn;
   this.okBtn = okBtn;
   this.editBtn = editBtn;
-}
+}//Excellent use of constructor to build a robust instance of something that is reusable. Great functional programming! -RJH
 
 // function getSaved() {
 //
@@ -27,12 +27,12 @@ function Todoitems(div,h2,removeBtn,okBtn,editBtn) {
 submitBtn.addEventListener('click', e => {
   e.preventDefault();
   let userNote = document.forms.noteForm.noteInput.value;
-  createTodo(todoContainer,userNote,todoList);
+  createTodo(todoContainer,userNote,todoList); //Nice functional programming! -RJH
   document.forms.noteForm.reset();
 });
 
 toggleClass.addEventListener('click', e => {
-  switch (listValue) {
+  switch (listValue) { //EXCELLENT use of the switch! -RJH
     case 0:
     header.textContent = 'Done';
     todoContainer.classList.add('hide');
@@ -43,7 +43,7 @@ toggleClass.addEventListener('click', e => {
     header.textContent = 'To-Do';
     doneContainer.classList.add('hide');
     todoContainer.classList.remove('hide');
-    listValue--;
+    listValue--; //Great work using incs and decs -RJH
       break;
     default:
     listValue = 0;
@@ -55,7 +55,7 @@ toggleClass.addEventListener('click', e => {
 function createTodo(con,todo,arr) {
   let container = con,
     text = todo,
-    listArr = arr,
+    listArr = arr, //Why are you initializing variables for the args? You can just use the args like variables -RJH
     div = document.createElement('div'),
     h2 = document.createElement('h2'),
     removeBtn = document.createElement('button'),
@@ -70,14 +70,14 @@ function createTodo(con,todo,arr) {
   removeBtn.classList.add('glyphicon','glyphicon-remove');
   removeBtn.addEventListener('click', e => {
     e.preventDefault();
-    container.removeChild(e.target.parentNode);
+    container.removeChild(e.target.parentNode); //EXCELLENT use of logic here! -RJH
   });
   div.appendChild(okBtn);
   okBtn.classList.add('glyphicon','glyphicon-ok');
   okBtn.addEventListener('click', e => {
     e.preventDefault();
     container.removeChild(div);
-    if(container === todoContainer){
+    if(container === todoContainer){ //Very elegant and well done. I would recommend a ternary here, but other than that, great work! -RJH
       createTodo(doneContainer,h2.innerText,doneList);
     } else if(container === doneContainer){
       createTodo(todoContainer,h2.innerText,todoList);
@@ -93,8 +93,8 @@ listArr.push(newTodo);
 };
 
 
-function editFun(div,h2,btn1,btn2,btn3) {
-  h2.classList.add('hide');
+function editFun(div,h2,btn1,btn2,btn3) { //This function could probably be refactored into smaller, more modular functions -RJH
+  h2.classList.add('hide');  
   btn1.classList.add('hide');
   btn2.classList.add('hide');
   btn3.classList.add('hide');
