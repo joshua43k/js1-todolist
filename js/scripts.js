@@ -1,45 +1,46 @@
+let todoList = [];
+let doneList = [];
 let submitBtn = document.querySelector('#submitBtn');
 let todoContainer = document.querySelector('#todo_items');
 let doneContainer = document.querySelector('#done_items');
 let toggleClass = document.querySelector('#show_done');
 let header = document.querySelector('#header');
-let todolist = [];
-let doneList = [];
 let listValue = 0;
 
-function Todoitems(text) {
-  this.text = text;
+function Todoitems(div,h2,removeBtn,okBtn,editBtn) {
+  this.div = div;
+  this.h2 = h2;
+  this.removeBtn = removeBtn;
+  this.okBtn = okBtn;
+  this.editBtn = editBtn;
 }
 
-function getSaved() {
-
-};
-
-function setSaved() {
-  localStorage.setItem('todoList', JSON.stringify(todolist));
-  localStorage.setItem('doneList', JSON.stringify(doneList));
-}
+// function getSaved() {
+//
+// };
+//
+// function setSaved() {
+//   localStorage.setItem('todoList', JSON.stringify(todoList));
+//   localStorage.setItem('doneList', JSON.stringify(doneList));
+// }
 
 submitBtn.addEventListener('click', e => {
   e.preventDefault();
   let userNote = document.forms.noteForm.noteInput.value;
-  let newTodo = new Todoitems(userNote);
-  createTodo(todoContainer,userNote);
+  createTodo(todoContainer,userNote,todoList);
   document.forms.noteForm.reset();
-  todolist.push(newTodo);
-  setSaved();
 });
 
 toggleClass.addEventListener('click', e => {
   switch (listValue) {
     case 0:
-    header.textContent = 'Done list';
+    header.textContent = 'Done';
     todoContainer.classList.add('hide');
     doneContainer.classList.remove('hide');
     listValue++;
       break;
     case 1:
-    header.textContent = 'Todo list';
+    header.textContent = 'To-Do';
     doneContainer.classList.add('hide');
     todoContainer.classList.remove('hide');
     listValue--;
@@ -51,14 +52,16 @@ toggleClass.addEventListener('click', e => {
 
 
 
-function createTodo(con,todo) {
+function createTodo(con,todo,arr) {
   let container = con,
     text = todo,
+    listArr = arr,
     div = document.createElement('div'),
     h2 = document.createElement('h2'),
     removeBtn = document.createElement('button'),
     okBtn = document.createElement('button'),
-    editBtn = document.createElement('button');
+    editBtn = document.createElement('button'),
+    newTodo = new Todoitems(div,h2,removeBtn,okBtn,editBtn);
   container.appendChild(div);
   div.classList.add('listed-item');
   div.appendChild(h2);
@@ -67,10 +70,7 @@ function createTodo(con,todo) {
   removeBtn.classList.add('glyphicon','glyphicon-remove');
   removeBtn.addEventListener('click', e => {
     e.preventDefault();
-    container.removeChild(div);
-    if(text === text)
-    console.log(todolist);
-    setSaved();
+    container.removeChild(e.target.parentNode);
   });
   div.appendChild(okBtn);
   okBtn.classList.add('glyphicon','glyphicon-ok');
@@ -78,9 +78,9 @@ function createTodo(con,todo) {
     e.preventDefault();
     container.removeChild(div);
     if(container === todoContainer){
-      createTodo(doneContainer,text);
+      createTodo(doneContainer,text,doneList);
     } else if(container === doneContainer){
-      createTodo(todoContainer,text);
+      createTodo(todoContainer,text,todoList);
     };
   });
   div.appendChild(editBtn);
@@ -89,6 +89,8 @@ function createTodo(con,todo) {
     e.preventDefault();
     editFun(div,h2,removeBtn,okBtn,editBtn);
 });
+listArr.push(newTodo);
+};
 
 
 function editFun(div,h2,btn1,btn2,btn3) {
@@ -130,4 +132,3 @@ function editFun(div,h2,btn1,btn2,btn3) {
     btn3.classList.remove('hide');
   });
 };
-}
